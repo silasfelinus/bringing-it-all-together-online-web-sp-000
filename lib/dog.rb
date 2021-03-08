@@ -61,7 +61,8 @@ def save
   end
 
   def self.find_by_name(name)
-    dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?", name)
+    dog_data = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?", name)
+    self.new_from_database(dog_data)
   end
 
 
