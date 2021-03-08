@@ -65,5 +65,8 @@ def save
     self.new_from_db(dog_data[0])
   end
 
-
+  def update
+    sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
+    DB[:conn].execute(sql, self.name, self.breed, self.id)
+  end
 end
